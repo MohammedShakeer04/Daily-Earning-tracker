@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Earnings Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div>
+            <h1>Delivery Tracker</h1>
+            <p>Track your daily earnings & expenses</p>
+        </div>
+        <button id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+    </header>
+
+    <section class="target-card">
+        <div class="section-title">
+            <div>
+                <h2>Monthly Target</h2>
+                <p id="currentMonth"></p>
+            </div>
+            <button class="small-btn" onclick="setTarget()">Set Target</button>
+        </div>
+        <div class="target-amount">₹<span id="targetAmount">0</span></div>
+        <div class="progress-container"><div id="progressBar"></div></div>
+        <div class="progress-info">
+            <span id="progressPercent">0% completed</span>
+            <span>₹<span id="remainingAmount">0</span> remaining</span>
+        </div>
+    </section>
+
+    <section class="summary-grid">
+        <div class="summary-card">
+            <span class="icon">💰</span>
+            <p>Total Earnings</p>
+            <h2>₹<span id="totalEarnings">0</span></h2>
+        </div>
+        <div class="summary-card">
+            <span class="icon">💸</span>
+            <p>Total Spending</p>
+            <h2>₹<span id="totalSpending">0</span></h2>
+        </div>
+        <div class="summary-card net">
+            <span class="icon">📈</span>
+            <p>Net Income</p>
+            <h2>₹<span id="netIncome">0</span></h2>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="section-heading">
+            <h2>Daily Entry</h2>
+            <p>Add your earnings and expenses</p>
+        </div>
+
+        <form id="entryForm">
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+
+            <label for="earnings">Today's Earnings (₹)</label>
+            <input type="number" id="earnings" placeholder="Example: 1200" min="0" step="0.01" required>
+
+            <label for="spending">Today's Spending (₹)</label>
+            <input type="number" id="spending" placeholder="Example: 300" min="0" step="0.01" required>
+
+            <label for="spendingDetails">Spending Details</label>
+            <input type="text" id="spendingDetails" placeholder="Example: Petrol, food...">
+
+            <button type="submit" class="add-btn">+ Add Entry</button>
+        </form>
+    </section>
+
+    <section class="daily-result">
+        <h2>Today's Summary</h2>
+        <div class="result-row"><span>Earnings</span><strong>₹<span id="todayEarnings">0</span></strong></div>
+        <div class="result-row"><span>Spending</span><strong class="expense">- ₹<span id="todaySpending">0</span></strong></div>
+        <hr>
+        <div class="result-row total"><span>Net Income</span><strong>₹<span id="todayNet">0</span></strong></div>
+    </section>
+
+    <section class="card">
+        <div class="section-heading history-heading">
+            <div>
+                <h2>Daily History</h2>
+                <p>Your earnings records</p>
+            </div>
+            <button class="clear-btn" onclick="clearAllData()">Clear All</button>
+        </div>
+        <div id="historyContainer">
+            <div class="empty-state">
+                <div>📊</div>
+                <p>No entries yet</p>
+                <small>Add your first daily entry above.</small>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Delivery Earnings Tracker</p>
+        <small>Your data is stored on this device.</small>
+    </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
